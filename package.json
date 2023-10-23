@@ -1,0 +1,43 @@
+{
+  "name": "X Agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "package": "electron-packager . --platform=win32 --arch=x64 --out=./dist --overwrite",
+    "start": "electron ."
+  },
+  "appId": "com.xagent.app",
+  "productName": "X Agent",
+  "win": {
+    "target": "nsis",
+    "icon": "assets/x.ico"
+  },
+  "linux": {
+    "target": [
+      "AppImage",
+      "deb",
+      "rpm"
+    ],
+    "icon": "assets/x.png"
+  },
+  "mac": {
+    "target": "dmg",
+    "icon": "assets/x.icns"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ibrahimgunduz34/process-list": "^1.0.13",
+    "axios": "^1.5.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "local-ip-url": "^1.0.8",
+    "node-browser-history": "^3.0.0",
+    "ps-list": "^8.1.1"
+  },
+  "devDependencies": {
+    "electron": "^27.0.2"
+  }
+}

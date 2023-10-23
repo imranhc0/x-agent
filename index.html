@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-Agent | Electron JS Cross Platfrom Agent Application</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    label {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 15px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <label for="serverAddress">Server Address:</label>
+  <input type="text" id="serverAddress" placeholder="Enter server address">
+
+  <button onclick="fetchAndSendData()">Save</button>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    function fetchAndSendData() {
+      const serverAddress = document.getElementById('serverAddress').value;
+
+      if (!serverAddress) {
+        alert('Please enter a valid server address.');
+        return;
+      }
+
+      ipcRenderer.send('fetch-and-send-data', serverAddress);
+    }
+  </script>
+</body>
+</html>
